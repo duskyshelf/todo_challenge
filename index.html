@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="TaskManager">
+  <head>
+    <meta charset="utf-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/GitUserSearchController.js"></script>
+    <script src="/js/searchFactory.js"></script>
+    <script src="/js/omdbSearchFactory.js"></script>
+  </head>
+
+  <body ng-controller="TaskController as taskCtrl">
+    <div>
+      <form class="form-horizontal">
+        <input type="text" ng-model="taskCtrl">
+        <button class="btn" ng-click="taskCtrl.addNewTask()">Add New</button>
+      </form>
+      <ul class="list-group" ng-repeat="task in taskCtrl.tasks">
+        <li>
+          <a>{{task.todo}}</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
