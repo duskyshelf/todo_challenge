@@ -1,16 +1,32 @@
 taskManager.controller('TaskManagerController', [function() {
 
-  this.addNewTask = function () {
-    this.tasks = [
+  var self = this;
+  self.tasks = [];
+
+  self.addNewTask = function () {
+    self.tasks.push(
       {
-        "todo": "weekend challenge",
+        "todo": self.newTask,
         "status": "active",
-      },
-      {
-        "todo": "retrospective",
-        "status": "done"
-      }
-    ];
+      });
   };
+
+  self.deleteTask = function (task) {
+    var index = self.tasks.indexOf(task);
+    self.tasks.splice(index, 1);
+  };
+
+  self.changeTaskStatus = function (task) {
+    var index = self.tasks.indexOf(task);
+
+
+    if (task.status == "completed")
+      { task.status = "active"; }
+    else
+      { task.status = "completed"; }
+
+    self.tasks[index] = task;
+  };
+
 
 }]);
