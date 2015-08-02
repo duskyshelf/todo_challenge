@@ -17,10 +17,14 @@
         <input type="text" ng-model="taskCtrl.newTask">
         <button class="btn" ng-click="taskCtrl.addNewTask()">Add New</button>
       </form>
+      Filter:
+      <label  ng-click="statusFilter = ''">All</label>
+      <label  ng-click="statusFilter = 'active'">Active</label>
+      <label  ng-click="statusFilter = 'completed'">Completed</label>
       <div>
         You have {{taskCtrl.tasks.length}} tasks
       </div>
-      <ul class="list-group" ng-repeat="task in taskCtrl.tasks">
+      <ul class="list-group" ng-repeat="task in taskCtrl.tasks | filter: {status: statusFilter}">
         <li>
           {{ task.todo }}
           <label class="statusEdit" ng-click="taskCtrl.changeTaskStatus(task)">{{ task.status }} </label>
