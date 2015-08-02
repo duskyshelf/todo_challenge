@@ -17,15 +17,10 @@ taskManager.controller('TaskManagerController', [function() {
   };
 
   self.changeTaskStatus = function (task) {
-    var index = self.tasks.indexOf(task);
-
-
     if (task.status == "active")
       { task.status = "completed"; }
     else
       { task.status = "active"; }
-
-    self.tasks[index] = task;
   };
 
 
