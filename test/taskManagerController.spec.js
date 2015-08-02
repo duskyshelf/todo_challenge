@@ -37,6 +37,30 @@ describe('TaskManagerController', function() {
     });
   });
 
+  describe('editing tasks', function() {
+
+    var tasks = [
+      {
+        "todo": "weekend challenge",
+        "status": "active",
+      }
+    ];
+
+    var editedTasks = [
+      {
+        "todo": "final project",
+        "status": "active",
+      }
+    ];
+
+    it('updates a task', function() {
+      ctrl.tasks = tasks;
+      ctrl.editedTodo = "final project"
+      ctrl.editTask(tasks[0]);
+      expect(ctrl.tasks).toEqual(editedTasks);
+    });
+  });
+
   describe('changing task status', function() {
 
     var completedTasks = function() {

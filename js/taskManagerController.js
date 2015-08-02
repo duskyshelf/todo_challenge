@@ -7,8 +7,10 @@ taskManager.controller('TaskManagerController', [function() {
     self.tasks.push(
       {
         "todo": self.newTask,
-        "status": "active",
+        "status": "active"
       });
+
+    self.newTask = '';
   };
 
   self.deleteTask = function (task) {
@@ -23,5 +25,8 @@ taskManager.controller('TaskManagerController', [function() {
       { task.status = "active"; }
   };
 
+  self.editTask = function (task) {
+    task.todo = self.editedTodo;
+  };
 
 }]);

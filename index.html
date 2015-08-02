@@ -20,9 +20,14 @@
       <ul class="list-group" ng-repeat="task in taskCtrl.tasks">
         <li>
           {{ task.todo }}
+          <label class="statusEdit" ng-click="taskCtrl.changeTaskStatus(task)">{{ task.status }} </label>
         </li>
         <li>
-          <label class="edit" ng-click="taskCtrl.changeTaskStatus(task)">{{ task.status }} </label>
+          <label class="edit" ng-model="editing"> Edit: <input type="checkbox", ng-model="editing"><br/>
+        </li>
+        <li ng-show="editing">
+          <input type="text" ng-model="taskCtrl.editedTodo">
+          <button class="btn" ng-click="taskCtrl.editTask(task)">Edit</button>
         </li>
         <li>
           <label class="destroy" ng-click="taskCtrl.deleteTask(task)">Delete Task</label>
