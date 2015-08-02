@@ -17,6 +17,9 @@
         <input type="text" ng-model="taskCtrl.newTask">
         <button class="btn" ng-click="taskCtrl.addNewTask()">Add New</button>
       </form>
+      <div>
+        You have {{taskCtrl.tasks.length}} tasks
+      </div>
       <ul class="list-group" ng-repeat="task in taskCtrl.tasks">
         <li>
           {{ task.todo }}
