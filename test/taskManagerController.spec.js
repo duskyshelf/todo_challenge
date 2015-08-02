@@ -39,24 +39,31 @@ describe('TaskManagerController', function() {
 
   describe('changing task status', function() {
 
-    var example = [
-      {
+    var completedTasks = function() {
+      return [{
         "todo": "weekend challenge",
-        "status": "completed",
-      }
-    ];
+        "status": "completed"
+      }];
+    };
 
-    var tasks = [
-      {
+    var activeTasks = function() {
+      return [{
         "todo": "weekend challenge",
-        "status": "active",
-      }
-    ];
+        "status": "active"
+      }];
+    };
 
-    it('sets a new task from active to completed', function() {
-      ctrl.tasks = tasks;
-      ctrl.changeTaskStatus(tasks[0]);
-      expect(ctrl.tasks).toEqual(example);
+    it('sets an active task to completed', function() {
+      ctrl.tasks = activeTasks();
+      ctrl.changeTaskStatus(ctrl.tasks[0]);
+      expect(ctrl.tasks).toEqual(completedTasks());
     });
+
+    it('sets a completed task to active', function() {
+      ctrl.tasks = completedTasks();
+      ctrl.changeTaskStatus(ctrl.tasks[0]);
+      expect(ctrl.tasks).toEqual(activeTasks());
+    });
+
   });
 });

@@ -20,10 +20,10 @@ taskManager.controller('TaskManagerController', [function() {
     var index = self.tasks.indexOf(task);
 
 
-    if (task.status == "completed")
-      { task.status = "active"; }
-    else
+    if (task.status == "active")
       { task.status = "completed"; }
+    else
+      { task.status = "active"; }
 
     self.tasks[index] = task;
   };

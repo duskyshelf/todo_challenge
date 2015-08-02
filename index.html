@@ -22,11 +22,10 @@
           {{ task.todo }}
         </li>
         <li>
-          {{ task.status }}
+          <label class="edit" ng-click="taskCtrl.changeTaskStatus(task)">{{ task.status }} </label>
         </li>
         <li>
-          <button class="destroy" ng-click="taskCtrl.deleteTask(task)">
-          <button class="edit" ng-click="taskCtrl.changeTaskStatus(task)">
+          <label class="destroy" ng-click="taskCtrl.deleteTask(task)">Delete Task</label>
         </li>
       </ul>
     </div>
